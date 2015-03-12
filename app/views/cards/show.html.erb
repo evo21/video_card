@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Videos for:  
+  <%= @card.title %></strong>
+</p>
+
+<%= form_for @video do |f| %>
+<%= f.hidden_field :card_id, value: @card.id %>
+Caption: <%= f.text_field :caption %><br>
+
+<%= f.label :contributor, 'Your Name (to attach to this video):'  %>
+<%= f.text_field :contributor %><br>
+
+<camera id='cardiocam' name='video' data-app-id='a-83503570-ab0a-0132-98d5-22000a1c8efd'></camera><br>
+<%= f.submit %>
+<% end %>
+
+
+<% @card.videos.each do |video| %>
+  '<%= video.caption %>' sent by:  <%= video.contributor %>
+  <video id='card-io_<%=video.id%>' data-uuid='<%= video.video_uuid %>'></video>
+
+  <br>
+<% end %>
+
+<%= link_to 'Back', cards_path %>
