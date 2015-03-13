@@ -12,14 +12,14 @@ Caption: <%= f.text_field :caption %><br>
 <%= f.label :contributor, 'Your Name (to attach to this video):'  %>
 <%= f.text_field :contributor %><br>
 
-<camera id='cardiocam' name='video' data-app-id='a-83503570-ab0a-0132-98d5-22000a1c8efd'></camera><br>
+<camera id='clustercard' name='vid' data-app-id='a-83503570-ab0a-0132-98d5-22000a1c8efd'></camera><br>
 <%= f.submit %>
 <% end %>
-
+<br>
 
 <% @card.videos.each do |video| %>
-  '<%= video.caption %>' sent by:  <%= video.contributor %>
-  <video id='card-io_<%=video.id%>' data-uuid='<%= video.video_uuid %>'></video>
+  '<%= video.caption %>' |  sent by:  <%= video.contributor %>
+  <video id='vid_<%=video.id%>' data-uuid='<%= video.video_uuid %>'></video>
 
   <br>
 <% end %>

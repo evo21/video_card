@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cards Index</h1>
-
 <table>
   <thead>
     <tr>
@@ -9,17 +7,14 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @cards.each do |card| %>
-      <tr>
-        <td><%= link_to 'Show', card %></td>
-        <td><%= link_to 'Edit', edit_card_path(card) %></td>
-        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<center><h1><strong>ClusterCard.com</h1></center></strong>
 
-<br>
+<center><h2><p>Get your heart pumping by creating<br>a video greeting or well-wishes for your friends.</p>
+<p>Each ClusterCard has its own page.</p>
+<p>Invite others to contribute.</h2></center></p>
 
-<%= link_to 'New Card', new_card_path %>
+<h2><center>http://clustercard.io/<%= form_for @card do |f| %>
+  <%= f.text_field :slug %>
+  <%= hidden_field_tag :page1, value = "y" %></p>
+  <%= f.submit "Go To Your Card" %>
+<% end %>

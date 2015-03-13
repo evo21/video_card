@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @card = Card.new
   end
 
   # GET /cards/1
@@ -15,7 +15,8 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
-    @card = Card.new
+    @card = Card.new(card_params)
+    binding.pry
   end
 
   # GET /cards/1/edit
@@ -25,16 +26,15 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
+    @cards = Card.all
+    @slug = params[:card][:slug]
     @card = Card.new(card_params)
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'Success!' }
-        format.json { render :show, status: :created, location: @card }
-      else
-        format.html { render :new }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
+    if params[:page1] && !@cards.find_by_slug(@slug) # @cards.where.first?
+      render 'new'
+      @card = Card.new(card_params)
+    else
+      @card.save
+      redirect_to @card, notice: 'Success!' #why is this redirect '@card'?
     end
   end
 
@@ -70,7 +70,7 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-    params.require(:card).permit(:title)
+    params.require(:card).permit(:slug, :title)
     end
   
 end
