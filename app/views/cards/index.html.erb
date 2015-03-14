@@ -10,11 +10,14 @@
 <center><h1><strong>ClusterCard.com</h1></center></strong>
 
 <center><h2><p>Get your heart pumping by creating<br>a video greeting or well-wishes for your friends.</p>
-<p>Each ClusterCard has its own page.</p>
-<p>Invite others to contribute.</h2></center></p>
 
-<h2><center>http://clustercard.io/<%= form_for @card do |f| %>
-  <%= f.text_field :slug %>
-  <%= hidden_field_tag :page1, value = "y" %></p>
-  <%= f.submit "Go To Your Card" %>
-<% end %>
+<p>Each ClusterCard has its own page.</p>
+
+<p>Invite others to contribute.</p>
+
+<p><%= form_for @card do |f| %>
+  	<%= f.label URI.escape("http://clustercard.com/") %>
+  	<%= f.text_field :slug, required: true %>
+  	<%= hidden_field_tag :page1, value = "y" %></p>
+	<%= f.submit "Go To Your Card" %></h2></center>
+	<% end %>

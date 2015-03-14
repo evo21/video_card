@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Videos for:  
-  <%= @card.title %></strong>
-</p>
+<center>
+<p><h1><strong>Videos for: 
+  <%=@card.title.split.map(&:capitalize)*' ' %> </strong></h1></p>
 
-<%= form_for @video do |f| %>
+<h3><%= form_for @video do |f| %>
 <%= f.hidden_field :card_id, value: @card.id %>
-Caption: <%= f.text_field :caption %><br>
+<p><%= f.label :caption, 'Caption:' %>
+<%= f.text_field :caption, placeholder: '<not required>', default: 'Video' %></p>
 
-<%= f.label :contributor, 'Your Name (to attach to this video):'  %>
-<%= f.text_field :contributor %><br>
+<p><%= f.label :contributor, 'Your Name (to attach to this video):'  %>
+<%= f.text_field :contributor, required: true %></p>
 
-<camera id='clustercard' name='vid' data-app-id='a-83503570-ab0a-0132-98d5-22000a1c8efd'></camera><br>
-<%= f.submit %>
-<% end %>
-<br>
-
-<% @card.videos.each do |video| %>
-  '<%= video.caption %>' |  sent by:  <%= video.contributor %>
-  <video id='vid_<%=video.id%>' data-uuid='<%= video.video_uuid %>'></video>
-
-  <br>
+<camera id='clustercard' name='video' data-app-id='a-83503570-ab0a-0132-98d5-22000a1c8efd' data-poll-for-processed='true'></camera><br>
+<%= f.submit %></center></h3>
 <% end %>
 
-<%= link_to 'Back', cards_path %>
+<div class="videos-container"
+  <% @card.videos.each do |v| %>
+    '<%= v.caption %>' |  sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
+    <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video>
+    <br>
+    Note: Sound may not be heard right away.
+  <% end %>
+</div>
+
+<%= button_to 'Back', cards_path %>

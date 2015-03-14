@@ -26,20 +26,20 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @cards = Card.all
-    @slug = params[:card][:slug]
-    @card = Card.new(card_params)
-    if params[:page1] && !@cards.find_by_slug(@slug) # @cards.where.first?
-      render 'new'
-      @card = Card.new(card_params)
+    if params[:page1] 
+      if @card = Card.find_by_slug(params[:card][:slug])
+        redirect_to card_path(@card)
+      else
+        @card = Card.new(card_params)
+        render 'new'
+      end
     else
+      @card = Card.new(card_params)
       @card.save
-      redirect_to @card, notice: 'Success!' #why is this redirect '@card'?
+      redirect_to card_path(@card)
     end
   end
 
-  # PATCH/PUT /cards/1
-  # PATCH/PUT /cards/1.json
   def update
     respond_to do |format|
       if @card.update(card_params)
