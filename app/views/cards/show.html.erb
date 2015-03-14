@@ -16,13 +16,11 @@
 <%= f.submit %></center></h3>
 <% end %>
 
-<div class="videos-container"
   <% @card.videos.each do |v| %>
     '<%= v.caption %>' |  sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
     <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video>
     <br>
     Note: Sound may not be heard right away.
   <% end %>
-</div>
 
 <%= button_to 'Back', cards_path %>
