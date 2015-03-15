@@ -1,18 +1,33 @@
 <p id="notice"><%= notice %></p>
-
+<!-- 
 <div class="page-header">
-    <center><h1 id="container">ClusterCard.net</h1></center>
+    <center><h1 id="container"></h1></center>
+</div> -->
+
+<div class="jumbotron">
+    <center><h1>ClusterCard.net</h1>
+    <p>Get your heart pumping by creating a video greeting or well-wishes for your friends.</p>
+    <p>Each ClusterCard has its own page.</p>
+	<p>Invite others to contribute.</p>
+    <p><a class="btn btn-primary btn-lg">Learn more</a></p></center>
 </div>
 
-<center><h2><p>Get your heart pumping by creating a video greeting or well-wishes for your friends.</p>
-
-<p>Each ClusterCard has its own page.</p>
-
-<p>Invite others to contribute.</p>
-
-<p><%= form_for @card do |f| %>
-  	<%= f.label :slug, 'http://clustercard.net/' %>
-  	<%= f.text_field :slug, required: true %>
-  	<%= hidden_field_tag :page1, value = "y" %></p>
-	<%= f.submit "Go To Your Card", class:"btn btn-primary btn-block" %></h2></center>
-	<% end %>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="well bs-componenet">
+			<form class="form-horizontal">
+				<fieldset>
+					<legend><center>Ready to make a Video Card for someone?  Enter a unique identifier:</legend>
+					<div class="col-lg-10">
+						<%= form_for @card do |f| %>
+  						<%= f.label :slug, 'http://clustercard.net/' %>
+  						<%= f.text_field :slug, required: true %>
+  						<%= hidden_field_tag :page1, value = "y" %></p></center>
+						<%= f.submit "Go To Your Card", class:"btn btn-primary btn-block" %></h2></center>
+						<% end %>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
