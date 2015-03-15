@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="page-header">
+    <center><h1 id="container">ClusterCard.net</h1></center>
+</div>
 
-<center><h1><strong>ClusterCard.net</h1></center></strong>
-
-<center><h2><p>Get your heart pumping by creating<br>a video greeting or well-wishes for your friends.</p>
+<center><h2><p>Get your heart pumping by creating a video greeting or well-wishes for your friends.</p>
 
 <p>Each ClusterCard has its own page.</p>
 
 <p>Invite others to contribute.</p>
 
 <p><%= form_for @card do |f| %>
-  	<%= f.label URI.escape("http://clustercard.net/") %>
+  	<%= f.label :slug, 'http://clustercard.net/' %>
   	<%= f.text_field :slug, required: true %>
   	<%= hidden_field_tag :page1, value = "y" %></p>
-	<%= f.submit "Go To Your Card" %></h2></center>
+	<%= f.submit "Go To Your Card", class:"btn btn-primary btn-block" %></h2></center>
 	<% end %>
