@@ -18,7 +18,11 @@
                     <%= button_to 'Back', cards_path %></h2>
 				<% end %>
 
-  			<% @card.videos.each do |v| %>
-    			Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
-    			<video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br>
-  			<% end %>
+  			    <% @card.videos.each do |v| %>
+    			    Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
+    			    <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br>
+  			    <% end %>
+            </div>
+        </div>
+    </div>
+</div>
