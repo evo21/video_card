@@ -1,18 +1,16 @@
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-<center>
-<p><h1>Add a Title to Your Card</h1></p></h1>
-
-<p><h2><%= form_for @card do |f| %>
-  <%= f.hidden_field :slug, value: @card.slug %>
-  <%= f.label :title, 'Title: ' %>
-  <%= f.text_field :title, required: true %></p><br>
-
-  <p><%= f.submit "Add to Card" %></p></center>
-  <%= button_to 'Back', cards_path %></h2>
-<% end %>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="well bs-component">
+            <center><legend><h1>Add a Title to Your Card:</h1></legend>
+            <div class="col-lg-10">
+                <%= bootstrap_form_for(@card, layout: :inline) do |f| %>
+                    <h2><%= f.hidden_field :slug, value: @card.slug %>
+                    <%= f.label :title, 'Title: ' %>
+                    <%= f.text_field :title, hide_label: true, required: true %><br><br>
+                    <p><%= f.submit "Add to Card", class: "btn btn-primary btn-block" %></p></center>
+                    <%= button_to 'Back', cards_path %></h2>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

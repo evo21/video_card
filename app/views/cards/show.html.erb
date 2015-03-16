@@ -1,23 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+    <center><h1>Videos for:  
+    <%=@card.title.split.map(&:capitalize)*' ' %></h1></center>
+</div>
 
-<center>
-<p><h1><strong>Videos for: 
-  <%=@card.title.split.map(&:capitalize)*' ' %> </strong></h1></p>
-
-<h3><%= form_for @video do |f| %>
-<%= f.hidden_field :card_id, value: @card.id %>
-
-<p><%= f.label :contributor, 'Your Name (to attach to this video):'  %>
-<%= f.text_field :contributor, required: true %></p>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="well bs-component">
+            <div class="col-lg-10">
+                <%= bootstrap_form_for(@video, layout: :inline) do |f| %>
+                    <h2><center><%= f.hidden_field :card_id, value: @card.id %>
+                    <%= f.label :contributor, 'Your Name' %>
+                    <%= f.text_field :contributor, hide_label: true, required: true, placeholder: '<to attach to video>' %><br><br>
 
 <camera id='clustercard' name='video' data-app-id='a-83503570-ab0a-0132-98d5-22000a1c8efd' data-poll-for-processed='true'></camera><br>
-<%= f.submit %></center></h3>
-<% end %>
 
-  <% @card.videos.each do |v| %>
-    '<%= v.caption %>' |  sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
-    <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video>
-    <br>
-  <% end %>
+					<%= f.submit "Submit", class: "btn btn-primary btn-block" %></center><br>
+                    <%= button_to 'Back', cards_path %></h2>
+				<% end %>
 
-<%= button_to 'Back', cards_path %>
+  			<% @card.videos.each do |v| %>
+    			Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
+    			<video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br>
+  			<% end %>
