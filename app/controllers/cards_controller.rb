@@ -26,7 +26,8 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    if params[:page1] 
+    binding.pry
+    if params[:page1]
       if @card = Card.find_by_slug(params[:card][:slug])
         redirect_to card_path(@card)
       else

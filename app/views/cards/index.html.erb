@@ -19,11 +19,12 @@
 				<fieldset>
 					<legend><center>Ready to make a Video Card for someone?  Enter a unique identifier:</legend>
 					<div class="col-lg-10">
-						<%= form_for @card do |f| %>
-  						<%= f.label :slug, 'http://clustercard.net/' %>
-  						<%= f.text_field :slug, required: true %>
-  						<%= hidden_field_tag :page1, value = "y" %></p></center>
-						<%= f.submit "Go To Your Card", class:"btn btn-primary btn-block" %></h2></center>
+						<%= form_for @card, url: url_for(controller: 'cards', action: 'create') do |f| %>
+  						  <%= f.label :slug, 'http://clustercard.net/' %>
+  						  <%= f.text_field :slug, required: true %>
+  						  <%= hidden_field_tag :page1, value = "y" %></p></center>
+						  <%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
+						  </div></h2></center>
 						<% end %>
 					</div>
 				</fieldset>
