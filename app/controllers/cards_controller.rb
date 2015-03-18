@@ -1,6 +1,8 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy]
 
+  CARD_CATEGORIES = ['birthday', 'wedding', 'congrats', 'sympathy', 'thanks']
+
   # GET /cards
   # GET /cards.json
   def index
