@@ -9,7 +9,7 @@
     <p>Get your heart pumping by creating a video greeting or well-wishes for your friends.</p>
     <p>Each ClusterCard has its own page.</p>
 	<p>Invite others to contribute.</p>
-    <p><a class="btn btn-primary btn-lg">Learn more</a></p></center>
+    <p><%= link_to 'Learn more', info_path, class: "btn btn-primary btn-lg", method: :get %></p></center>
 </div>
 
 <div class="row">
@@ -20,7 +20,7 @@
 				<%= bootstrap_form_for(@card, layout: :inline) do |f| %>
   					<h2><%= f.label :slug, 'http://clustercard.net/' %>
   					<%= f.text_field :slug, hide_label: true, required: true %>
-  					<%= hidden_field_tag :page1, value = "y" %></p></center>
+  					<%= hidden_field_tag :page1, value = "y" %></p>
 					<%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
 					</div></h2></center>
 				<% end %>

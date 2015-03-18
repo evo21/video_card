@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'videos/create'
 
   resources :cards
   resources :videos, only: [:index, :show, :create]
+  get "/info" => "info#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
