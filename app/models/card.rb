@@ -6,7 +6,7 @@ class Card < ActiveRecord::Base
 
 
 
-  CARD_CATEGORIES = ['birthday', 'congratulations', 'wedding', 'sympathy', 'thanks']
+  CARD_CATEGORIES = ['birthday', 'congratulations', 'wedding/anniversary', 'sympathy', 'thanks']
 
   # def to_param
   #   self.slug.downcase.gsub(" ", "-")

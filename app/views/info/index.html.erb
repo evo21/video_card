@@ -7,28 +7,28 @@
     <div class="bs-component">
         <div class="panel panel-danger">
             <div class="panel-heading">
-                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[0]}" %></h3>
+                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[0]}" %></h3><%= link_to 'See Example', card_path(70), class: "btn btn-primary btn-sm", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary btn-sm", method: :get %>
             </div>
             <div class="panel-body">
-                Don't send the same ol' FB post!  Send your friends or loved ones a video ClusterCard to wish a very Happy Birthday!
+                Don't send the same ol' FB post!  Send your friends or loved ones a video ClusterCard to wish a very <i>Happy Birthday!</i>
             </div>
         </div>
 
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[1]}" %></h3>
+                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[1]}" %></h3><%= link_to 'See Example', card_path(70), class: "btn btn-primary btn-sm", method: :get %>
             </div>
         	<div class="panel-body">
-            	Panel content
+            	New family addition?  New graduate?  New job?  Send your 'Congrats' with a video ClusterCard!
         	</div>
     	</div>
 
-    	<div class="panel panel-warning">
+    	<div class="panel panel-default">
         	<div class="panel-heading">
-            	<h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[2]}" %></h3>
+            	<h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[2]}" %></h3><%= link_to 'See Example', card_path(70), class: "btn btn-primary btn-sm", method: :get %>
         	</div>
         	<div class="panel-body">
-            	Panel content
+            	Send some heart-felt wishes for this special occasion.
             </div>
         </div>
     </div>
@@ -37,19 +37,19 @@
     <div class="bs-component">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[3]}" %></h3>
+                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[3]}" %></h3><%= link_to 'See Example', card_path(70), class: "btn btn-primary btn-sm", method: :get %>
             </div>
             <div class="panel-body">
-                Panel content
+                Say <i>I'm here for you</i> with a simple, meaningful video message.
             </div>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-warning">
             <div class="panel-heading">
-                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[4]}" %></h3>
+                <h3 class="panel-title"><%= "#{Card::CARD_CATEGORIES[4]}" %></h3><%= link_to 'See Example', card_path(70), class: "btn btn-primary btn-sm", method: :get %>
             </div>
             <div class="panel-body">
-                Panel content
+                Your <i>THANK YOU</i> can mean so much more when you say it with a ClusterCard! 
             </div>
         </div>
 
@@ -61,5 +61,22 @@
                 Panel content
             </div>
         </div> -->
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="well bs-component">
+            <legend><center>Ready to make a new ClusterCard?  Enter a unique identifier:</legend>
+            <div class="col-lg-10">
+                <%= bootstrap_form_for(@card, layout: :inline) do |f| %>
+                    <h2><%= f.label :slug, 'http://clustercard.net/' %>
+                    <%= f.text_field :slug, hide_label: true, required: true %>
+                    <%= hidden_field_tag :page1, value = "y" %></p>
+                    <%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
+                    </div></h2></center>
+                <% end %>
+            </div>
+        </div>
     </div>
 </div>
