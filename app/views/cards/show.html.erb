@@ -14,43 +14,33 @@
 
                     <camera id='clustercard' name='video' data-app-id='a-83503570-ab0a-0132-98d5-22000a1c8efd' data-poll-for-processed='true'></camera><br>
 
-					<%= f.submit "Submit", class: "btn btn-primary btn-block" %></center><br>
+					          <%= f.submit "Submit", class: "btn btn-primary btn-block" %></center><br>
                     <%= button_to 'Back', cards_path %></h2>
-				<% end %>
+				        <% end %>
 
-  			    <% @card.videos.each do |v| %>
-    			    Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
-                            <br>
+  			        <% @card.videos.each do |v| %>
+    			          Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %><br>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
+                    <%= image_tag(v.small_thumb, class: 'img-responsive', class: 'img-circle', style: "border: 3px solid red" ) %></a>
+                      <!-- , style: 'border-radius: 50px;' (will round edges on box)-->
 
-
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
-                            <%= image_tag(v.small_thumb) %>
-                          </a>
-
-
-                            <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
+                    <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Video Number <%=v.id%></h4>
-                                  </div>
-                                  <div class="modal-body">
-                                                        <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
-                                    ...
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  </div>
+                                    <h4 class="modal-title" id="myModalLabel"><%=v.contributor%></h4>
                                 </div>
-                              </div>
+                                <div class="modal-body">
+                                    <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
-
-
-
-
-
-  			    <% end %>
+                        </div>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
