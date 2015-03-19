@@ -20,7 +20,12 @@
 
   			    <% @card.videos.each do |v| %>
     			    Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %>
+                            <br>
     			    <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+                            <br>
+                            <%= image_tag(v.small_thumb) %>
+                            <br>
+                            <%= image_tag(v.thumb) %>
                     <!-- #change to '#{@card.id}_v.id' to ID videos belonging to cards -->
   			    <% end %>
             </div>
