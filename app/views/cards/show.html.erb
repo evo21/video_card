@@ -16,14 +16,13 @@
 					          <%= f.submit "Submit", class: "btn btn-primary btn-block" %></center><br>
                     <%= button_to 'Back', cards_path %></h2>
 				        <% end %>
-
   			        <% @card.videos.each do |v| %>
-    			          Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %><br>
+    			          <!-- Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %> -->
                     <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
-                    <%= image_tag(v.small_thumb, class: 'img-circle', style: "border: 3px solid red" ) %></a>
+                    <%= image_tag(v.small_thumb, class: 'img-circle', style: "border: 3px solid red; float: left; margin-right: 15px;") %></a>
                       <!-- , style: 'border-radius: 50px;' (will round edges on box)-->
 
-                    <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" width="device-width" initial-scale="1.0" >
+                    <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

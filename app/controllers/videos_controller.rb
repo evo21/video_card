@@ -13,7 +13,12 @@ class VideosController < ApplicationController
   	redirect_to card_path(@card)
   end
 
+  # def mark_complete
+  #   @video = Video.find_by(video_uuid: params[:uuid])
+  #   @video.update_attribute(:completed => true)
+  # end
+
   def video_params
-  	params.require(:video).permit(:caption, :contributor, :card_id, :video_uuid)
+  	params.require(:video).permit(:contributor, :card_id, :video_uuid)
   end
 end
