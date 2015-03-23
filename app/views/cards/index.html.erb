@@ -13,18 +13,17 @@
 </div>
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-lg-12">
 		<div class="well bs-component">
-			<legend><center>Ready to make a Video Card for someone?  Enter a unique identifier:</legend>
-			<div class="col-lg-10">
-				<%= bootstrap_form_for(@card, layout: :inline) do |f| %>
-  					<h2><%= f.label :slug, 'http://clustercard.net/' %>
-  					<%= f.text_field :slug, hide_label: true, required: true %>
-  					<%= hidden_field_tag :page1, value = "y" %></p>
-					<%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
-					</div></h2></center>
-				<% end %>
-			</div>
+			<legend><center>Have a Cluster Card Code? Enter it here. - OR - Enter a new, unique identifier:</legend>
+			
+			<%= bootstrap_form_for(@card, layout: :inline) do |f| %>
+  				<h3><%= f.label :slug, 'http://clustercard.net/' %>
+  				<%= f.text_field :slug, hide_label: true, required: true %>
+  				<%= hidden_field_tag :page1, value = "y" %></p>
+				<%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
+				</h3></center>
+			<% end %>
 		</div>
 	</div>
 </div>

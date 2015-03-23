@@ -19,7 +19,7 @@
   			        <% @card.videos.each do |v| %>
     			          <!-- Sent by:  <%= v.contributor.split.map(&:capitalize)*' ' %> -->
                     <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
-                    <%= image_tag(v.small_thumb, class: 'img-circle', style: "width: 150px; height: 150px; border: 3px solid red; float: left; margin-right: 10px; margin-top: 25px;") %></a>
+                    <%= image_tag(v.small_thumb, class: 'img-circle', style: "width: 140px; height: 140px; border: 3px solid red; float: left; margin-right: 10px; margin-top: 25px;") %></a>
                       <!-- , style: 'border-radius: 50px;' (will round edges on box)-->
 
                     <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
