@@ -1,3 +1,6 @@
+
+
+
 <p id="notice"><%= notice %></p>
 <!-- 
 <div class="page-header">
@@ -9,21 +12,7 @@
       <p>Create a birthday, greeting, or well-wishes video card for your friends. </p>
     <p>Each ClusterCard has its own page of videos.</p>
 	<p>Invite others to contribute.</p>
-    <p><%= link_to 'Learn more', info_path, class: "btn btn-primary btn-lg", method: :get %></p></center>
+    <p><%= link_to 'Learn more', info_path, class: "btn btn-primary btn-lg", method: :get %></p>
+    <p><%= link_to 'Create your card', new_card_path, class: "btn btn-primary btn-lg" %></p></center>
 </div>
 
-<div class="row">
-	<div class="col-lg-12">
-		<div class="well bs-component">
-			<legend><center>Have a Cluster Card Code? Enter it here. - OR - Enter a new, unique identifier:</legend>
-			
-			<%= bootstrap_form_for(@card, layout: :inline) do |f| %>
-  				<h3><%= f.label :slug, 'http://clustercard.net/' %>
-  				<%= f.text_field :slug, hide_label: true, required: true %>
-  				<%= hidden_field_tag :page1, value = "y" %></p>
-				<%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
-				</h3></center>
-			<% end %>
-		</div>
-	</div>
-</div>

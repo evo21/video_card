@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-lg-6">
+        <div class="well bs-component">
+            <center><legend><h1>Add a Title to Your Card:</h1></legend>
+              <h3>A sample title might be "Happy 50th Uncle Mike!" </h3>
+            <div class="col-lg-10">
+                <%= bootstrap_form_for(@card, layout: :inline) do |f| %>
+                    <h2><%= f.hidden_field :slug, value: @card.slug %>
+                    <%= f.label :title, 'Title: ' %>
+                    <%= f.text_field :title, hide_label: true, required: true %><br><br>
+                    <p><%= f.submit "Add to Card", class: "btn btn-primary btn-block" %></p></center>
+                <% end %>
+                    <%= link_to 'Back', root_path %></h2>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,8 +13,7 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
-    @card = Card.new(card_params)
-    binding.pry
+    @card = Card.new
   end
 
   # GET /cards/1/edit
