@@ -6,6 +6,6 @@ class Card < ActiveRecord::Base
   validates :title, presence: true
   validates :category, presence: true
 
-  CARD_CATEGORIES = ['birthday', 'congratulations', 'wedding/anniversary', 'sympathy', 'thanks']
+  CARD_CATEGORIES = ['basic', 'birthday', 'congratulations', 'wedding', 'anniversary', 'sympathy', 'thank_you']
 
 end

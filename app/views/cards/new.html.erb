@@ -35,13 +35,13 @@
 
                   <div class="bs-step inv">
                     <div class="bs-step-inner">
-                      <legend><center>What kind of card is this?    </legend></center>
+                      <legend><center>Pick a theme for your card:</legend></center>
                           <br> 
                           <br> 
                           <%= f.form_group :category, label: { text: "Card Category" } do %>
-                          <%= f.radio_button :category, 'birthday', label: "Birthday", inline: true %>
-                          <%= f.radio_button :category, 'anniversary', label: "Anniversary", inline: true %>
-                          <%= f.radio_button :category, 'graduation', label: "Graduation", inline: true %>
+                            <% Card::CARD_CATEGORIES.each do |cc| %>
+                              <%= f.radio_button :category, cc, label: cc.humanize %>
+                            <% end %>
                           <% end %>
                     </div>
                   </div>
