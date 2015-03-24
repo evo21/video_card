@@ -3,7 +3,7 @@ class Card < ActiveRecord::Base
   has_many :invitations
 
   validates :slug, presence:true, uniqueness: true
-  validates :name, presence: true
+  validates :title, presence: true
   validates :category, presence: true
 
   CARD_CATEGORIES = ['birthday', 'congratulations', 'wedding/anniversary', 'sympathy', 'thanks']
