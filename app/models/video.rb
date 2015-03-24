@@ -4,4 +4,3 @@ class Video < ActiveRecord::Base
   # scope :complete, { where(:completed => true) }
 end
 
-# card.videos.complete
