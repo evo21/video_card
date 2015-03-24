@@ -4,53 +4,48 @@
   });
 </script>
 
-<div class="row bs-wizard">
-	<div class="col-lg-12">
-		<div class="well bs-component">
-      <%= bootstrap_form_for(@card, layout: :inline) do |f| %>
+<div class="container">
+  <div class="row bs-wizard">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="well bs-component">
+        <%= bootstrap_form_for(@card, layout: :inline) do |f| %>
 
-        <div class="bs-step inv">
-          <div class="bs-step-inner">
-            <legend><center>What URL would you like for your card?  </legend></center>
-              <br> 
-              This card needs to not move forward without valid input...
-              <br> 
+          <div class="bs-step inv">
+            <div class="bs-step-inner">
+              <h2 class="text-center">What URL would you like for your card?</h2>
               http://clustercard.net/<%= f.text_field :slug, hide_label: true, :required => "true" %>
+            </div>
           </div>
-        </div>
 
-        <div class="bs-step inv">
-          <div class="bs-step-inner">
-            <legend><center>What title would you like for your card?  For example, "Happy 78th to Uncle Bob!"</legend></center>
-              <br> 
-              TODO: this card needs to not move forward without valid input
-              <br> 
-            <%= f.text_field :title, hide_label: true %>
+          <div class="bs-step inv">
+            <div class="bs-step-inner">
+              <h2>What title would you like for your card?  <small>For example, "Happy 78th to Uncle Bob!"</small></h2>
+              <%= f.text_field :title, hide_label: true %>
+            </div>
           </div>
-        </div>
 
-        <div class="bs-step inv">
-          <div class="bs-step-inner">
-            <legend><center>Pick a theme for your card:</legend></center>
-              <br> 
-              <br> 
-              <%= f.form_group :category, label: { text: "Card Category" } do %>
-                <% Card::CARD_CATEGORIES.each do |cc| %>
-                  <%= f.radio_button :category, cc, label: cc.humanize %>
+          <div class="bs-step inv">
+            <div class="bs-step-inner">
+              <h2>Pick a theme for your card:</h2>
+                <%= f.form_group :category, label: { text: "Card Category" } do %>
+                  <% Card::CARD_CATEGORIES.each do |cc| %>
+                    <%= f.radio_button :category, cc, label: cc.humanize %>
+                  <% end %>
                 <% end %>
-              <% end %>
+            </div>
           </div>
-        </div>
 
-        <div class="bs-step inv">
-          <div class="bs-step-inner">
-            TODO: **Summary of card values here before creation?  Not sure how to do that...
-            <%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
+          <div class="bs-step inv">
+            <div class="bs-step-inner">
+              TODO: **Summary of card values here before creation?  Not sure how to do that...
+              <%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
+            </div>
           </div>
-        </div>
 
-      <% end %>
-    
+        <% end %>
+      
+      </div>
     </div>
-	</div>
+  </div>
 </div>
+
