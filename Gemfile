@@ -7,6 +7,8 @@ gem 'rails', '4.2.0'
 gem 'pg'
 gem 'puma'
 gem 'devise'
+gem 'high_voltage'
+gem 'jquery-steps-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -13,8 +13,7 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
-    @card = Card.new(card_params)
-    binding.pry
+    @card = Card.new
   end
 
   # GET /cards/1/edit
@@ -24,17 +23,11 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    if params[:page1]
-      if @card = Card.find_by_slug(params[:card][:slug])
-        redirect_to card_path(@card)
-      else
-        @card = Card.new(card_params)
-        render 'new'
-      end
-    else
-      @card = Card.new(card_params)
-      @card.save
+    @card = Card.new(card_params)
+    if @card.save
       redirect_to card_path(@card)
+    else
+      render 'new'
     end
   end
 
@@ -68,7 +61,7 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-    params.require(:card).permit(:slug, :title)
+    params.require(:card).permit(:slug, :title, :category)
     end
   
 end
