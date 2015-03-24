@@ -36,46 +36,48 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-6">
-        <div class="well bs-component">
-            <div class="col-lg-10">
-                <%= bootstrap_form_for(@video, layout: :inline) do |f| %>
-                    <h2><center><%= f.hidden_field :card_id, value: @card.id %>
-                        <camera 
-                        id=<%= ENV['CAMERA'] %> 
-                        name='video' 
-                        data-app-id=<%= ENV['CAMERA_KEY'] %> 
-                        data-pre-roll-length='3'
-                        data-detect-camera='false'
-                        data-poll-for-processed='true'>
-                        </camera><br>
-                    </center><br>
-                      <% end %>
-                    <% @card.videos.each do |v| %>
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
-                    <%= image_tag(v.small_thumb, class: 'img-circle', style: "width: 140px; height: 140px; border: 3px solid red; float: left; margin-right: 10px; margin-top: 25px;") %></a>
-                      <!-- , style: 'border-radius: 50px;' (will round edges on box)-->
+  <div class="col-lg-6">
+    <div class="well bs-component">
+      <div class="col-lg-10">
+        <%= bootstrap_form_for(@video, layout: :inline) do |f| %>
+          <h4><center><%= f.hidden_field :card_id, value: @card.id %>
+              <camera 
+              id=<%= ENV['CAMERA'] %> 
+              name='video' 
+              data-app-id=<%= ENV['CAMERA_KEY'] %> 
+              data-pre-roll-length='3'
+              data-detect-camera='false'
+              data-poll-for-processed='true'>
+              </camera><br>
+          </center></h4><br>
+        <% end %>
+        
 
-                    <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel"><%=v.contributor%></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <% end %>
+        <% @card.videos.each do |v| %>
+          <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
+          <%= image_tag(v.small_thumb, class: 'img-circle', style: "width: 140px; height: 140px; border: 3px solid gray; float: left; margin-right: 12px; margin-top: 25px;") %></a>
+              <!-- , style: 'border-radius: 50px;' (would round edges on box)-->
+
+          <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel"><%=v.contributor%></h4>
+                </div>
+                <div class="modal-body">
+                  <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        <% end %>
+      </div>
     </div>
+  </div>
 </div>
 
 
