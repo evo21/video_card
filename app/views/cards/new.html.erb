@@ -8,30 +8,37 @@
   <div class="row bs-wizard">
     <div class="col-md-6 col-md-offset-3">
       <div class="well bs-component">
-        <%= bootstrap_form_for(@card, layout: :inline) do |f| %>
+        <%= bootstrap_form_for(@card) do |f| %>
 
           <div class="bs-step inv">
             <div class="bs-step-inner">
-              <h2 class="text-center">What URL would you like for your card?</h2>
-              http://clustercard.net/<%= f.text_field :slug, hide_label: true, :required => "true" %>
+              <h3 class="text-center">What URL would you like for your card?</h3>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">http://clustercard.net/</span>
+                  <%= f.text_field :slug, hide_label: true, :required => "true", :class => 'input-lg' %>
+                </div>
             </div>
           </div>
 
           <div class="bs-step inv">
             <div class="bs-step-inner">
-              <h2>What title would you like for your card?  <small>For example, "Happy 78th to Uncle Bob!"</small></h2>
-              <%= f.text_field :title, hide_label: true %>
+              <h3 class="text-center">What title would you like for your card?</h3>
+              <%= f.text_field :title, hide_label: true, placeholder: 'e.g. "Happy 78th to Uncle Bob!"', :class => 'input-lg' %>
             </div>
           </div>
 
           <div class="bs-step inv">
             <div class="bs-step-inner">
-              <h2>Pick a theme for your card:</h2>
-                <%= f.form_group :category, label: { text: "Card Category" } do %>
-                  <% Card::CARD_CATEGORIES.each do |cc| %>
+              <h3 class="text-center">Pick a theme for your card:</h3>
+              <%= f.form_group :category do %>
+                <% Card::CARD_CATEGORIES.each do |cc| %>
+                  <% if cc == "birthday" %>
+                    <%= f.radio_button :category, cc, label: cc.humanize, checked: true %>
+                  <% else %>
                     <%= f.radio_button :category, cc, label: cc.humanize %>
                   <% end %>
                 <% end %>
+              <% end %>
             </div>
           </div>
 
@@ -41,7 +48,6 @@
               <%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
             </div>
           </div>
-
         <% end %>
       
       </div>
