@@ -41,6 +41,25 @@
     }
   };
 
+  function validate_fields(field, errorMessage, prependError) {
+    var value = $.trim($(field).val());
+    var errorMessage = errorMessage ? errorMessage : "You must finish this step";
+
+    if (value.length > 0) {
+      $(".alert").remove();
+      return true;
+    } else {
+      if (prependError)
+        $(prependError).before( '<div class="alert alert-warning" role="alert">' + errorMessage + '</div>' );
+      else
+        $(field).parent().before( '<div class="alert alert-warning" role="alert">' + errorMessage + '</div>' )
+    }
+  }
+
+  function current_step() {
+    return $(".bs-wizard").bs_wizard('option', 'currentStep');
+  }
+
   $.fn[pluginName].defaults = {
     currentStep: 1,
     addButtons: true,
@@ -53,10 +72,12 @@
     backText: "Go Back",
     nextType: "submit",
     backType: "reset",
-    nextClasses: "btn btn-primary",
-    backClasses: "btn btn-default",
+    nextClasses: "btn btn-primary btn-lg",
+    backClasses: "btn btn-default btn-lg",
     beforeNext: function() {
-      return true;
+      if (current_step() == 1) return validate_fields($("#card_slug"), "You must enter card slug", ".input-group") === true;
+      if (current_step() == 2) return validate_fields($("#card_title")) === true;
+      if (current_step() == 3) return validate_fields($("#card_slug")) === true;
     },
     onNext: function() {
       return true;

@@ -31,6 +31,14 @@
 
 </style>
 
+<section class="card <%=@card.category %>">
+  <div class="overlay">
+    <div class="frame">
+      <div class="container-fluid">
+        <h1 class="text-center"><%=@card.title %></h1>
+        <p class="lead text-center">•••</p>
+        <div class="row videos">
+          <div class="col-xs-12 text-center">
   <script>
     window.fbAsyncInit = function() {
       FB.init({
@@ -48,55 +56,50 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
   </script>
-
-<div class="jumbotron">
-    <center><h1><%=@card.title %></h1></center>
-</div>
-
-<div class="row">
-  <div class="col-lg-6">
-    <div class="well bs-component">
       <div class="col-lg-12">
-        <%= bootstrap_form_for(@video, layout: :inline) do |f| %>
-          <h4><center><%= f.hidden_field :card_id, value: @card.id %>
-              <camera 
-              id=<%= ENV['CAMERA'] %> 
-              name='video' 
-              data-app-id=<%= ENV['CAMERA_KEY'] %> 
-              data-pre-roll-length='3'
-              data-detect-camera='false'
-              data-poll-for-processed='true'>
-              </camera><br>
-          </center></h4><br>
-        <% end %>
-        
+            <% @card.videos.each do |v| %>
+              <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
+              <%= image_tag(v.small_thumb, class: 'video-message') %></a>
+                  <!-- , style: 'border-radius: 50px;' (would round edges on box)-->
 
-        <% @card.videos.each do |v| %>
-          <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
-          <%= image_tag(v.small_thumb, class: 'img-circle', style: "width: 140px; height: 140px; border: 3px solid gray; float: left; margin-right: 12px; margin-top: 25px;") %></a>
-              <!-- , style: 'border-radius: 50px;' (would round edges on box)-->
-
-          <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel"><%=v.contributor%></h4>
-                </div>
-                <div class="modal-body">
-                  <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel"><%=v.contributor%></h4>
+                    </div>
+                    <div class="modal-body">
+                      <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <%= bootstrap_form_for(@video, layout: :inline) do |f| %>
+              <h4><center><%= f.hidden_field :card_id, value: @card.id %>
+                  <camera 
+                  id=<%= ENV['CAMERA'] %> 
+                  name='video' 
+                  data-app-id=<%= ENV['CAMERA_KEY'] %> 
+                  data-pre-roll-length='3'
+                  data-detect-camera='false'
+                  data-poll-for-processed='true'>
+                  </camera><br>
+              </center></h4><br>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-
+</section>
 
