@@ -1,5 +1,6 @@
 (function() {
   var $, Plugin, data_pluginName, pluginName;
+  var cardTitle = "";
 
   $ = jQuery;
 
@@ -44,9 +45,9 @@
   function validate_fields(field, errorMessage, prependError) {
     var value = $.trim($(field).val());
     var errorMessage = errorMessage ? errorMessage : "You must finish this step";
+    $(".alert").remove();
 
     if (value.length > 0) {
-      $(".alert").remove();
       return true;
     } else {
       if (prependError)
@@ -76,7 +77,13 @@
     backClasses: "btn btn-default btn-lg",
     beforeNext: function() {
       if (current_step() == 1) return validate_fields($("#card_slug"), "You must enter card slug", ".input-group") === true;
-      if (current_step() == 2) return validate_fields($("#card_title")) === true;
+      if (current_step() == 2) {
+        if (validate_fields($("#card_title")) === true) {
+          cardTitle = $("#card_title").val();
+          console.log(cardTitle);
+          return true;
+        }
+      } 
       if (current_step() == 3) return validate_fields($("#card_slug")) === true;
     },
     onNext: function() {
