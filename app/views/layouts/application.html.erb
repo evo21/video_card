@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <%= favicon_link_tag 'logo.png' %>
+  <meta property=og:title content=ClusterCard.net />
+  <meta property=og:type content=website />
+  <meta property=og:url content=http://clustercard.net />
+  <meta property=og:image content=http://i.imgur.com/5fs4BK1.jpg />
+  <meta property=og:description content='Add to a ClusterCard with a personalized video message to your friends or loved ones -- or create your own. Choose from birthday, sympathy, congratulations themes, or create your own fun idea.  I am a Ruby on Rails web developer with app development experience through a 3 month Rails bootcamp through the Iron Yard ATL. I am available for hire starting Spring 2015.' />
+  <meta property=fb:app_id content=<%= ENV['FB_APP_ID'] %> />
+
 
     <title>ClusterCard</title>
 	<!-- Latest compiled and minified CSS -->
@@ -22,33 +30,15 @@
 
 <body>
 
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '2051596044981118',
-	      xfbml      : true,
-	      version    : 'v2.2'
-	    });
-	  };
-
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "//connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	</script>
-
-	<!-- <div class="page-header">
-	    <center><h1 id="container"></h1></center>
-	    <div
-	  		class="fb-like"
-	  		data-share="true"
-	  		data-width="450"
-	  		data-show-faces="true">
-		</div>
-	</div> -->
+  <div class="page-header">
+      <center><h1 id="container"></h1></center>
+      <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+  </div>
 
 	<%= yield %>
 

@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @card = Card.new
   end
@@ -8,7 +9,14 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
+    #@card = Card.find(params[:id])
     @video = Video.new
+  end
+
+  def show_by_slug
+    @card = Card.find_by_slug(params[:id])
+    @video = Video.new
+    render 'show'
   end
 
   # GET /cards/new
@@ -25,7 +33,8 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     if @card.save
-      redirect_to card_path(@card)
+      #redirect_to card_path(@card)
+      redirect_to cardslug_path(@card.slug)
     else
       render 'new'
     end
