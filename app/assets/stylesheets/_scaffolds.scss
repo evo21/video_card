@@ -88,12 +88,10 @@ div {
 
 #hero {
   background: #555 url(wedding.png) center center no-repeat;
-  // background-size: cover;
-  // min-height: 50%;
   color: white;
+  transition: background-color 1s ease;
 
   .overlay {
-    background-color: rgba(44,44,44,.85);
     padding-bottom: $spacing-unit;
   }
 
@@ -114,36 +112,37 @@ div {
 .anniversary {
   background: #555 url(anniversary.png) center center no-repeat;
   background-size: cover;
-
-  .overlay { background-color: rgba($anniversary-color, .45); }
+  .overlay { background-color: rgba($anniversary-color, .65); }
 }
 .generic {
   background: #555 url(generic.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($generic-color, .65); }
 }
 .wedding {
   background: #555 url(wedding.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($wedding-color, .65); }
 }
 .birthday {
   background: #555 url(birthday.png) center center no-repeat;
   background-size: cover;
-
-  .overlay { background-color: rgba($birthday-color, .55); }
+  .overlay { background-color: rgba($birthday-color, .65); }
 }
 .congratulations {
   background: #555 url(congratulations.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($congratulations-color, .65); }
 }
 .thank_you {
   background: #555 url(thank_you.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($thank_you-color, .65); }
 }
 .sympathy {
   background: #555 url(sympathy.png) center center no-repeat;
   background-size: cover;
-
-  .overlay { background-color: rgba($sympathy-color, .45); }
+  .overlay { background-color: rgba($sympathy-color, .65); }
 }
 
 .showcardcontainer {
@@ -183,7 +182,7 @@ div {
   .overlay {
     height: 100%;
     min-height: 100%;
-    padding: 30px;
+    border: 30px solid rgba(44,44,44,.5);
   }
 
   .frame {
@@ -199,8 +198,9 @@ div {
   padding-bottom: $spacing-unit;
   
   .overlay {
-    padding: 15px;
     border-radius: 2px;
+    border: 15px solid rgba(44,44,44,.65);
+    background-color: transparent;
   }
 
   .card {
@@ -217,9 +217,17 @@ div {
     h3 {
       font-weight: 300;
       text-transform: capitalize;
+      background: rgba(44,44,44,.65);
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.85);
+      display: inline-block;
 
       & + p {
         min-height: 60px;
+        background: rgba(44,44,44,.65);
+        padding: 10px;
+        border: 1px solid rgba(255,255,255,.85);
+        display: inline-block;
       }
     }
 
@@ -282,12 +290,25 @@ section.card {
   position: relative;
   color: white;
 
+  .overlay {
+    height: 100%;
+    min-height: 100%;
+    border: 30px solid rgba(44,44,44,.5);
+  }
+
+  .frame {
+    padding: 30px;
+  }
+
   h1 {
     font-size: 78px;
     font-weight: 100;
     color: white;
     padding-bottom: 30px;
-    border-bottom: 2px solid rgba(255,255,255,.85);
+    border: 2px solid rgba(255,255,255,.85);
+    background-color: rgba(44,44,44,.65);
+    padding: 20px;
+    display: inline-block;
   }
 
   a:hover {
