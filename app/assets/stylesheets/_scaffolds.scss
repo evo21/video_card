@@ -87,7 +87,7 @@ div {
 }
 
 #hero {
-  background: #555 url(/assets/wedding.png) center center no-repeat;
+  background: #555 image-url(wedding.png) center center no-repeat;
   // background-size: cover;
   // min-height: 50%;
   color: white;
