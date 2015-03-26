@@ -7,11 +7,13 @@
     <h1>Welcome to ClusterCard.net</h1>
     <p>
       You have successfully created a video greeting card!</p>
-    <p>You can view your card here: </p>
+    <p>You can view the card in its current state here: </p>
     <p><%= link_to @card.title, cardslug_url(@card.slug), method: :get %> </p><br>
 
+    <p>You may also moderate/delete videos on the card: </p>
+    <p><%= link_to 'Manage your ClusterCard', edit_card_url(@card.auth_token) %> </p><br>
 
-    <p>At any time, you may create a new Video Card as well: <%= link_to 'Create your own', cards_url, method: :get %></p><br>
+    <p>At any time, you may create a new Video Card as well: <%= link_to 'Create your own', cards_url %></p><br>
 
     <p>
       To login to the site, just follow this link: http://clustercard.net
