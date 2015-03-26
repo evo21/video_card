@@ -12,7 +12,11 @@ class CardsController < ApplicationController
   def show_by_slug
     @card = Card.find_by_slug(params[:id])
     @video = Video.new
-    render 'show'
+    if @card
+      render 'show'
+    else
+      redirect_to new_card_path
+    end
   end
 
   # GET /cards/new
