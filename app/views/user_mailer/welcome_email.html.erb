@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to ClusterCard.net</h1>
+    <p>
+      You have successfully created a video greeting card!</p>
+    <p>You can view your card here: </p>
+    <p><%= link_to @card.title, cardslug_url(@card.slug), method: :get %> </p><br>
+
+
+    <p>At any time, you may create a new Video Card as well: <%= link_to 'Create your own', cards_url, method: :get %></p><br>
+
+    <p>
+      To login to the site, just follow this link: http://clustercard.net
+    </p>
+    <p>Thanks!</p>
+  </body>
+</html>
