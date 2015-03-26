@@ -1,4 +1,35 @@
 <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2051596044981118',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+  <div class="page-header">
+      <center><h1 id="container"></h1></center>
+      <div
+        class="fb-like"
+        padding-left: "5px"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+  </div>
+
+
+
+<script>
   var cluster_camera_id = '<%= ENV["CAMERA"] %>';
 
   CameraTag.observe(cluster_camera_id, 'published', function(){
@@ -39,23 +70,7 @@
         <p class="lead text-center">•••</p>
         <div class="row videos">
           <div class="col-xs-12 text-center">
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '2051596044981118',
-        xfbml      : true,
-        version    : 'v2.2'
-      });
-    };
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
       <div class="col-lg-12">
             <% @card.videos.each do |v| %>
               <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >

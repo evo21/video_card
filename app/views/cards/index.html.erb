@@ -13,10 +13,10 @@
 <section id="hero">
   <div class="overlay">
     <div class="container">
-      <h1 class="text-center">ClusterCard.net</h1>
+      <h1 class="text-center">ClusterCard</h1>
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
-          <p class="lead">Get your heart pumping by creating a video greeting or<br class="hidden-sm"> well-wishes for your friends.</p>
+          <p class="lead">Crowdsourced video greeting cards<br class="hidden-sm"> for family, friends -- or anyone!</p>
         </div>
       </div>
       
@@ -24,21 +24,25 @@
         <div class="col-md-10 col-md-offset-1">
           <div class="row text-center">
             <div class="col-md-4">
-              <p>Create a unique card</p>
+              <p>Create a card with a unique web address.</p>
             </div>
             <div class="col-md-4">
-              <p>Invite friends to contribute</p>
+              <p>Upload a video and<br>attach it to a card.</p>
             </div>
             <div class="col-md-4">
-              <p>Share!</p>
+              <p>Invite more contributors!</p>
             </div>
           </div>
         </div>
       </div>
+      <br>
+      <div class="text-center">
+        <p>Easy. &nbsp;Fast.<br>Right from your phone or browser.</p>
+      </div>
         
         <div class="row cta">
           <div class="col-md-12 text-center">
-            <%= link_to 'Create your card', new_card_path, class: "btn btn-primary btn-xl" %>
+            <%= link_to 'Get Started Now', new_card_path, class: "btn btn-primary btn-xl" %>
           </div>
         </div>
       </div>
@@ -48,7 +52,7 @@
 
 <section id="examples">
   <div class="container">
-    <h2 class="text-center">Need some ideas?</h2>
+    <h2 class="text-center">Card Categories</h2>
 
     <div class="row">
       <div class="col-md-4">
@@ -60,7 +64,7 @@
 
               <hr>
               <div class="text-center clearfix actions">
-              <%= link_to 'See Example', card_path(70), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
+              <%= link_to 'See Example', cardslug_path('birthday'), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
               </div>
             </div>
           </div>
@@ -75,7 +79,7 @@
               <p>New family addition?  New graduate?  New job?  Send your 'Congrats' with a video ClusterCard!</p>
               <hr>
               <div class="text-center clearfix actions">
-                <%= link_to 'See Example', card_path(70), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
+                <%= link_to 'See Example', cardslug_path('congratulations'), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
               </div>
             </div>
           </div>
@@ -90,7 +94,7 @@
               <p>Send some heart-felt wishes for this special occasion.</p>
               <hr>
               <div class="text-center clearfix actions">
-              <%= link_to 'See Example', card_path(70), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
+              <%= link_to 'See Example', cardslug_path('wedding'), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
               </div>
             </div>
           </div>
@@ -107,7 +111,7 @@
               <p>Share the love with anniversary wishes to the deserving couple.</p>
               <hr>
               <div class="text-center clearfix actions">
-              <%= link_to 'See Example', card_path(70), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
+              <%= link_to 'See Example', cardslug_path('anniversary'), class: "btn btn-default pull-left" %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
               </div>
             </div>
           </div>
@@ -122,7 +126,7 @@
               <p>Say <i>I'm here for you</i> with a simple, meaningful video message.</p>
               <hr>
               <div class="text-center clearfix actions">
-              <%= link_to 'See Example', card_path(70), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
+              <%= link_to 'See Example', cardslug_path('sympathy'), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
               </div>
             </div>
           </div>
@@ -137,7 +141,7 @@
               <p>Your <i>THANK YOU</i> can mean so much more when you say it with a ClusterCard! </p>
               <hr>
               <div class="text-center clearfix actions">
-              <%= link_to 'See Example', card_path(70), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
+              <%= link_to 'See Example', cardslug_path('thanks'), class: "btn btn-default pull-left", method: :get %> OR <%= link_to 'Create your own', cards_path, class: "btn btn-primary pull-right", method: :get %>
               </div>
             </div>
           </div>
@@ -145,14 +149,19 @@
       </div>
     </div>
   </div>
-  
+
+  <div class="container">
+    <div class="row text-center">
+        <p>Don't see a Category to fit your video card?</p>
+        <p>No problem!</p>
+        <p>Create your own fun ClusterCard!</p>
+      </div>
+
+    <div class="row cta">
+      <div class="col-md-12 text-center">
+        <%= link_to 'Create Your Card', new_card_path, class: "btn btn-primary btn-xl" %>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-<%= bootstrap_form_for(@card, layout: :inline) do |f| %>
-            <%= f.label :slug, 'http://clustercard.net/' %>
-            <%= f.text_field :slug, hide_label: true, required: true %>
-            <%= hidden_field_tag :page1, value = "y" %>
-            <%= f.submit "Create Card", class: "btn btn-primary btn-lg btn-block" %>
-          <% end %>
 
