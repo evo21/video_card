@@ -88,12 +88,10 @@ div {
 
 #hero {
   background: #555 url(wedding.png) center center no-repeat;
-  // background-size: cover;
-  // min-height: 50%;
   color: white;
+  transition: background-color 1s ease;
 
   .overlay {
-    background-color: rgba(44,44,44,.85);
     padding-bottom: $spacing-unit;
   }
 
@@ -120,10 +118,12 @@ div {
 .generic {
   background: #555 url(generic.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($anniversary-color, .45); }
 }
 .wedding {
   background: #555 url(wedding.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($anniversary-color, .45); }
 }
 .birthday {
   background: #555 url(birthday.png) center center no-repeat;
@@ -134,10 +134,12 @@ div {
 .congratulations {
   background: #555 url(congratulations.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($anniversary-color, .45); }
 }
 .thank_you {
   background: #555 url(thank_you.png) center center no-repeat;
   background-size: cover;
+  .overlay { background-color: rgba($anniversary-color, .45); }
 }
 .sympathy {
   background: #555 url(sympathy.png) center center no-repeat;
