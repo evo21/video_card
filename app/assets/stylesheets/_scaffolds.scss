@@ -87,7 +87,7 @@ div {
 }
 
 #hero {
-  background: #555 image-url(wedding.png) center center no-repeat;
+  background: #555 url(wedding.png) center center no-repeat;
   // background-size: cover;
   // min-height: 50%;
   color: white;
@@ -130,23 +130,23 @@ div {
   }
 
   &.birthday {
-    background: #555 url(/assets/birthday.png) center center no-repeat;
+    background: #555 url(birthday.png) center center no-repeat;
     background-size: cover;
     height: 100%;
   }
 
   &.wedding {
-    background: #555 url(/assets/wedding.png) center center no-repeat;
+    background: #555 url(wedding.png) center center no-repeat;
     background-size: cover;
   }
 
   &.congratulations {
-    background: #555 url(/assets/congratulations.png) center center no-repeat;
+    background: #555 url(congratulations.png) center center no-repeat;
     background-size: cover;
   }
 
   &.anniversary {
-    background: #555 url(/assets/anniversary.png) center center no-repeat;
+    background: #555 url(anniversary.png) center center no-repeat;
     background-size: cover;
 
     .overlay {
@@ -156,17 +156,17 @@ div {
   }
 
   &.generic {
-    background: #555 url(/assets/basic.jpg) center center no-repeat;
+    background: #555 url(basic.jpg) center center no-repeat;
     background-size: cover;
   }
 
   &.sympathy {
-    background: #555 url(/assets/sympathy.png) center center no-repeat;
+    background: #555 url(sympathy.png) center center no-repeat;
     background-size: cover;
   }
 
   &.thank_you {
-    background: #555 url(/assets/thank_you.png) center center no-repeat;
+    background: #555 url(thank_you.png) center center no-repeat;
     background-size: cover;
 
     .overlay {
