@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :cards
-  resources :videos, only: [:index, :show, :create]
+  resources :videos, only: [:index, :show, :create, :destroy]
   get "/info" => "info#index"
 
   get "/:id" => "cards#show_by_slug", as: 'cardslug'

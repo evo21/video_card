@@ -10,13 +10,29 @@ class VideosController < ApplicationController
         @video.small_thumb = params[:video][:qvga][:small_thumb]
 
   	@video.save
-  	redirect_to card_path(@card)
+        redirect_to cardslug_path(@card.slug)
   end
 
-  # def mark_complete
-  #   @video = Video.find_by(video_uuid: params[:uuid])
-  #   @video.update_attribute(:completed => true)
-  # end
+  def show
+    @video = Video.find_by_auth_token(params[:id])
+  end
+
+
+  def destroy
+    @video = Video.find_by_auth_token(params[:id])
+    card = @video.card
+#    @video.destroy
+
+    # get some info about the calling controller / method
+    source_page = Rails.application.routes.recognize_path(request.referrer)
+
+    if source_page[:controller] == 'videos'
+      redirect_to cardslug_path(card.slug), notice: 'Video was successfully destroyed.' 
+    else
+      # this means the destroy request came from the edit card page
+      redirect_to :back, notice: 'Video was successfully destroyed.' 
+    end
+  end
 
   def video_params
   	params.require(:video).permit(:contributor, :card_id, :video_uuid)

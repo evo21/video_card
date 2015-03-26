@@ -1,6 +1,28 @@
-<h1>Editing Card</h1>
+<h3>Edit your Cluster Card</h3>
 
-<%= render 'form' %>
+<%= flash_messages %>
 
-<%= link_to 'Show', @card %> |
-<%= link_to 'Back', cards_path %>
+<%= bootstrap_form_for @card do |f| %>
+  <h3>Your card can be viewed at</h3>
+  <%= link_to "http://clustercard.net/#{@card.slug}", cardslug_path(@card.slug) %>
+
+  <%= f.text_field :title %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= button_to "Delete this card", card_path(:id => @card.auth_token), :method => :delete, :class => 'btn btn-large btn-warning', data: { confirm: 'Are you sure?'} %>
+
+
+
+<h3>Card Videos</h3>
+
+<% @card.videos.each do |v| %>
+
+  <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+  <%= button_to "Delete this video", video_path(:id => v.auth_token), :method => :delete, :class => 'btn btn-large btn-warning', data: { confirm: 'Are you sure?'} %>
+
+
+<% end %>
