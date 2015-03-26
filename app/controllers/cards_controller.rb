@@ -37,6 +37,7 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     if @card.save
+      UserMailer.welcome_email(@card).deliver_later
       redirect_to cardslug_path(@card.slug)
     else
       render 'new'

@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: video_card_production
-  username: video_card
-  password: <%= ENV['VIDEO_CARD_DATABASE_PASSWORD'] %>
