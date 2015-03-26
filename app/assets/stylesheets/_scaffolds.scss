@@ -112,11 +112,55 @@ div {
   }
 }
 
+.showcardcontainer {
+  &.anniversary {
+    background: #555 url(anniversary.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  &.generic {
+    background: #555 url(generic.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  &.wedding {
+    background: #555 url(wedding.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  &.birthday {
+    background: #555 url(birthday.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  &.congratulations {
+    background: #555 url(congratulations.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  &.generic {
+    background: #555 url(generic.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  &.thank_you {
+    background: #555 url(thank_you.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  &.sympathy {
+    background: #555 url(sympathy.png) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+}
+
 .card {
   color: white;
 
   .overlay {
-    background-color: rgba(44,44,44,.70);
+    background-color: rgba(44,44,44,.50);
     height: 100%;
     min-height: 100%;
     padding: 30px;
@@ -129,51 +173,8 @@ div {
     z-index: 25;
   }
 
-  &.birthday {
-    background: #555 url(birthday.png) center center no-repeat;
-    background-size: cover;
-    height: 100%;
-  }
 
-  &.wedding {
-    background: #555 url(wedding.png) center center no-repeat;
-    background-size: cover;
-  }
 
-  &.congratulations {
-    background: #555 url(congratulations.png) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.anniversary {
-    background: #555 url(anniversary.png) center center no-repeat;
-    background-size: cover;
-
-    .overlay {
-      background-color: rgba(61,41,41,.75);
-      height: 100%;
-    }
-  }
-
-  &.generic {
-    background: #555 url(basic.jpg) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.sympathy {
-    background: #555 url(sympathy.png) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.thank_you {
-    background: #555 url(thank_you.png) center center no-repeat;
-    background-size: cover;
-
-    .overlay {
-      background-color: rgba(61,41,41,.65);
-      height: 100%;
-    }
-  }
 }
 
 #examples {
