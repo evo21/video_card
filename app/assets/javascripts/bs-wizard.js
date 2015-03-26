@@ -88,6 +88,8 @@
       if (current_step() == 4) return validate_fields($("#card_email")) === true;
     },
     onNext: function() {
+      if (current_step() == 2) $('#card_title').focus();
+      if (current_step() == 4) $('#card_email').focus();
       return true;
     },
     beforeBack: function() {
@@ -97,6 +99,7 @@
       return true;
     },
     onInit: function() {
+      console.log('current');
       return true;
     },
     onDestroy: function() {
