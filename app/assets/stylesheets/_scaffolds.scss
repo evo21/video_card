@@ -200,6 +200,7 @@ div {
   .overlay {
     border-radius: 2px;
     border: 15px solid rgba(44,44,44,.65);
+    background-color: transparent;
   }
 
   .card {
@@ -289,12 +290,25 @@ section.card {
   position: relative;
   color: white;
 
+  .overlay {
+    height: 100%;
+    min-height: 100%;
+    border: 30px solid rgba(44,44,44,.5);
+  }
+
+  .frame {
+    padding: 30px;
+  }
+
   h1 {
     font-size: 78px;
     font-weight: 100;
     color: white;
     padding-bottom: 30px;
-    border-bottom: 2px solid rgba(255,255,255,.85);
+    border: 2px solid rgba(255,255,255,.85);
+    background-color: rgba(44,44,44,.65);
+    padding: 20px;
+    display: inline-block;
   }
 
   a:hover {

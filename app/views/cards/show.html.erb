@@ -56,13 +56,14 @@
 <section class="card <%=@card.category %>">
   <div class="overlay">
     <div class="frame">
-      <div class="container-fluid">
+      <div class="container-fluid text-center">
         <div class="row">
           <div class="col-md-6 col-md-offset-3 text-center">
             <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
           </div>
         </div>
         <h1 class="text-center"><%=@card.title %></h1>
+        <p class="lead text-center">•••</p>
 
 
         <div class="row">
@@ -83,59 +84,52 @@
         
         <div class="row videos">
           <div class="col-xs-12 text-center">
-        <p class="lead text-center">•••</p>
-
-      <div class="col-lg-12">
-            <% @card.videos.each do |v| %>
-              <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
-              <%= image_tag(v.small_thumb, class: 'video-message') %></a>
-                  <!-- , style: 'border-radius: 50px;' (would round edges on box)-->
-
-              <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel"><%=v.contributor%></h4>
-                    </div>
-                    <div class="modal-body">
-                      <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="col-lg-12">
+              <% @card.videos.each do |v| %>
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#video_modal_<%=v.id%>" >
+                <%= image_tag(v.small_thumb, class: 'video-message') %></a>
+                    <!-- , style: 'border-radius: 50px;' (would round edges on box)-->
+                <div class="modal fade" id="video_modal_<%=v.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><%=v.contributor%></h4>
+                      </div>
+                      <div class="modal-body">
+                        <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
 
       <div class="row">
-          <div class="col-md-6 col-md-offset-3 text-center">
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-                /* * * CONFIGURATION VARIABLES * * */
-                var disqus_shortname = 'clustercard';
-                
-                /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-          </div>
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES * * */
+              var disqus_shortname = 'clustercard';
+              
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
         </div>
+      </div>
     </div>
-
-
   </div>
 </section>
-
-
 
 <script>
   $( document ).ready(function() {
