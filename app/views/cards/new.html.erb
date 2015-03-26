@@ -46,19 +46,10 @@
             <div class="bs-step-inner">
               <h3 class="text-center">Enter your email so we can send you a link to edit this card:</h3>
               <%= f.text_field :email, hide_label: true, placeholder: 'somebody@example.com', :class => 'input-lg' %>
+              <%= f.submit "Go To Your Card", class: "btn btn-primary btn-lg btn-block" %>
             </div>
           </div>
 
-          <div class="bs-step inv">
-            <div class="bs-step-inner">
-              <%= f.submit "Go To Your Card", class: "btn btn-primary btn-lg btn-block" %>
-
-              <section id="cardPreview" class="card">
-                <div class="overlay">
-                  <div class="frame">
-                    <h1 id="titlePreview"></h1>
-                  </div>
-                </div>
               </section>
             </div>
           </div>
