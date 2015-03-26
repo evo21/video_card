@@ -11,6 +11,12 @@ class Card < ActiveRecord::Base
 
   CARD_CATEGORIES = ['birthday', 'congratulations', 'wedding', 'anniversary', 'sympathy', 'thank_you', 'generic']
 
+  def to_param
+    # instead of id
+    auth_token
+  end
+
+
   def generate_auth_token
     # in a world where millions of people will use this, we would 
     # check to make sure the token is not duplicated.  We are not in that world.

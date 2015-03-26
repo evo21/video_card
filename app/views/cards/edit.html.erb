@@ -1,6 +1,12 @@
-<h1>Editing Card</h1>
+<h3>Edit your Cluster Card</h3>
 
-<%= render 'form' %>
+<%= bootstrap_form_for @card do |f| %>
 
-<%= link_to 'Show', @card %> |
-<%= link_to 'Back', cards_path %>
+  <%= f.text_field :slug %>
+  <%= f.text_field :title %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
