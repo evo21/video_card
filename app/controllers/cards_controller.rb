@@ -8,10 +8,6 @@ class CardsController < ApplicationController
 
   # GET /cards/1
   # GET /cards/1.json
-  def show
-    @card = Card.find(params[:id])
-    @video = Video.new
-  end
 
   def show_by_slug
     @card = Card.find_by_slug(params[:id])
@@ -33,7 +29,6 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     if @card.save
-      #redirect_to card_path(@card)
       redirect_to cardslug_path(@card.slug)
     else
       render 'new'
@@ -41,11 +36,12 @@ class CardsController < ApplicationController
   end
 
   def update
-    if @card.update(card_params)
-      render 'edit', notice: 'Card was successfully updated.'
+    if @card.update(card_params) 
+      flash.now[:notice] = 'Card was successfully updated.'
     else
-      render 'edit', notice: 'Card was successfully updated.'
+      flash.now[:error] = 'Card was not updated.'
     end
+    render 'edit'
   end
 
   # DELETE /cards/1

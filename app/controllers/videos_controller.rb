@@ -10,7 +10,7 @@ class VideosController < ApplicationController
         @video.small_thumb = params[:video][:qvga][:small_thumb]
 
   	@video.save
-  	redirect_to card_path(@card)
+        redirect_to cardslug_path(@card.slug)
   end
 
   # def mark_complete

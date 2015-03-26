@@ -1,5 +1,7 @@
 <h3>Edit your Cluster Card</h3>
 
+<%= flash_messages %>
+
 <%= bootstrap_form_for @card do |f| %>
 
   <%= f.text_field :slug %>
@@ -10,3 +12,9 @@
   </div>
 <% end %>
 
+<h3>Card Videos</h3>
+
+<% @card.videos.each do |v| %>
+
+  <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+<% end %>
