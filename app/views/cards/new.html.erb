@@ -44,6 +44,13 @@
 
           <div class="bs-step inv">
             <div class="bs-step-inner">
+              <h3 class="text-center">Enter your email so we can send you a link to edit this card:</h3>
+              <%= f.text_field :email, hide_label: true, placeholder: 'somebody@example.com', :class => 'input-lg' %>
+            </div>
+          </div>
+
+          <div class="bs-step inv">
+            <div class="bs-step-inner">
               <h1 id="titlePreview"></h1>
               TODO: **Summary of card values here before creation?  Not sure how to do that...
               <%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>

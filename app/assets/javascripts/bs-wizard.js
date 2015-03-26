@@ -69,8 +69,8 @@
     completedClass: "bs-wizard-completed",
     todoClass: "bs-wizard-todo",
     stepClass: "bs-wizard-step",
-    nextText: "Next Step",
-    backText: "Go Back",
+    nextText: "Next",
+    backText: "Back",
     nextType: "submit",
     backType: "reset",
     nextClasses: "btn btn-primary btn-lg",
@@ -85,6 +85,7 @@
         }
       } 
       if (current_step() == 3) return validate_fields($("#card_slug")) === true;
+      if (current_step() == 4) return validate_fields($("#card_email")) === true;
     },
     onNext: function() {
       return true;
