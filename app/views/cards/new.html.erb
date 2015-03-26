@@ -28,7 +28,7 @@
           </div>
 
           <div class="bs-step inv">
-            <div class="bs-step-inner">
+            <div id="selectTheme" class="bs-step-inner">
               <h3 class="text-center">Pick a theme for your card:</h3>
               <%= f.form_group :category do %>
                 <% Card::CARD_CATEGORIES.each do |cc| %>
@@ -51,9 +51,15 @@
 
           <div class="bs-step inv">
             <div class="bs-step-inner">
-              <h1 id="titlePreview"></h1>
-              TODO: **Summary of card values here before creation?  Not sure how to do that...
-              <%= f.submit "Go To Your Card", class: "btn btn-primary btn-block" %>
+              <%= f.submit "Go To Your Card", class: "btn btn-primary btn-lg btn-block" %>
+
+              <section id="cardPreview" class="card">
+                <div class="overlay">
+                  <div class="frame">
+                    <h1 id="titlePreview"></h1>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         <% end %>

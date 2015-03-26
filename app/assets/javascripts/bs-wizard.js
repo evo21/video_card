@@ -1,6 +1,7 @@
 (function() {
   var $, Plugin, data_pluginName, pluginName;
   var cardTitle = "";
+  var cardTheme = "";
 
   $ = jQuery;
 
@@ -80,11 +81,15 @@
       if (current_step() == 2) {
         if (validate_fields($("#card_title")) === true) {
           cardTitle = $("#card_title").val();
-          console.log(cardTitle);
+          $('#titlePreview').text(cardTitle);
           return true;
         }
       } 
-      if (current_step() == 3) return validate_fields($("#card_slug")) === true;
+      if (current_step() == 3) {
+        cardTheme = $("#selectTheme input[type='radio']:checked").val();
+        $('#cardPreview').addClass(cardTheme);
+        return true;
+      }
       if (current_step() == 4) return validate_fields($("#card_email")) === true;
     },
     onNext: function() {
