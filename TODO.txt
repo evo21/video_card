@@ -1,6 +1,2 @@
 
-
-clean up text on front page
-make sure back button works
-
-someone should be able to abandon a card on page 2 without creating it
+TODOS here
