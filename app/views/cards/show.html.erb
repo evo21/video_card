@@ -83,18 +83,17 @@
         </div>
 
         <div class="row">
-          <div class="col-md-6 col-md-offset-3">
+          <div class="col-md-6 col-md-offset-3 text-center">
             <%= bootstrap_form_for(@video, layout: :inline) do |f| %>
-              <h4><center><%= f.hidden_field :card_id, value: @card.id %>
-                  <camera 
-                  id=<%= ENV['CAMERA'] %> 
-                  name='video' 
-                  data-app-id=<%= ENV['CAMERA_KEY'] %> 
-                  data-pre-roll-length='3'
-                  data-detect-camera='false'
-                  data-poll-for-processed='true'>
-                  </camera><br>
-              </center></h4><br>
+              <%= f.hidden_field :card_id, value: @card.id %>
+                <camera 
+                id=<%= ENV['CAMERA'] %> 
+                name='video' 
+                data-app-id=<%= ENV['CAMERA_KEY'] %> 
+                data-pre-roll-length='3'
+                data-detect-camera='false'
+                data-poll-for-processed='true'>
+                </camera>
             <% end %>
           </div>
         </div>
@@ -102,4 +101,27 @@
     </div>
   </div>
 </section>
+
+<script>
+  $( document ).ready(function() {
+    console.log( "ready!" );
+
+    var imageData = Array();
+
+    for(var i = 0; i < imageTemp.2; i++){
+        updateImageData( i );
+    }
+
+    function updateImageData( i )
+        $.ajax({
+            type: "HEAD",
+            async: true,
+            url: "https://cameratag.com/videos/v-3ced23b5-035e-4b8d-9811-dbdc8b383ed6/qvga/small_thumb.png",
+            success: function(){
+                console.log('yup, it is there');
+            }
+        });
+    }
+  });
+</script>
 

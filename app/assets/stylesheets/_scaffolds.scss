@@ -14,6 +14,12 @@ body {
   line-height: 18px;
 }
 
+h2 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: $spacing-unit;
+}
+
 p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
@@ -27,10 +33,8 @@ pre {
 
 a {
   color: #000;
+  &:hover,
   &:visited {
-    color: #666;
-  }
-  &:hover {
     color: #fff;
   }
 
@@ -83,11 +87,16 @@ div {
 }
 
 #hero {
-  background: #555 url(/assets/hero-bg.jpeg) center center no-repeat;
-  background-size: cover;
-  min-height: 50%;
+  background: #555 url(/assets/wedding.png) center center no-repeat;
+  // background-size: cover;
+  // min-height: 50%;
   color: white;
-  padding-bottom: $spacing-unit;
+
+  .overlay {
+    background-color: rgba(44,44,44,.85);
+    // height: 100%;
+    padding-bottom: $spacing-unit;
+  }
 
   h1 {
     font-size: 78px;
@@ -97,51 +106,113 @@ div {
   }
 
   .lead { margin-bottom: $spacing-unit; }
+
+  .cta {
+    margin-top: $spacing-unit;
+  }
+}
+
+.card {
+  color: white;
+
+  .overlay {
+    background-color: rgba(44,44,44,.85);
+    height: 100%;
+    min-height: 100%;
+    padding: 30px;
+  }
+
+  .frame {
+    border: 2px solid rgba(255,255,255,.85);
+    border-radius: 2px;
+    min-height: 100%;
+    z-index: 25;
+  }
+
+  &.birthday {
+    background: #555 url(/assets/birthday.png) center center no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
+
+  &.wedding {
+    background: #555 url(/assets/wedding.png) center center no-repeat;
+    background-size: cover;
+  }
+
+  &.congratulations {
+    background: #555 url(/assets/congratulations.png) center center no-repeat;
+    background-size: cover;
+  }
+
+  &.anniversary {
+    background: #555 url(/assets/anniversary.png) center center no-repeat;
+    background-size: cover;
+
+    .overlay {
+      background-color: rgba(61,41,41,.85);
+      height: 100%;
+    }
+  }
+
+  &.generic {
+    background: #555 url(/assets/basic.jpg) center center no-repeat;
+    background-size: cover;
+  }
+
+  &.sympathy {
+    background: #555 url(/assets/sympathy.png) center center no-repeat;
+    background-size: cover;
+  }
+
+  &.thank_you {
+    background: #555 url(/assets/thank_you.png) center center no-repeat;
+    background-size: cover;
+
+    .overlay {
+      background-color: rgba(101,185,36,.75);
+      height: 100%;
+    }
+  }
 }
 
 #examples {
   padding-top: $spacing-unit;
   padding-bottom: $spacing-unit;
-
-  .card {
-    color: #333;
-    background-color: #555;
+  
+  .overlay {
     padding: 15px;
     border-radius: 2px;
-    min-height: 250px;
+  }
+
+  .card {
+    border-radius: 2px;
     margin-bottom: 20px;
+    border-radius: 2px;
 
     .frame {
       display: block;
-      border: 1px solid white;
+      border: 1px solid rgba(255,255,255,.6);
       padding: 15px;
     }
 
     h3 {
-      font-weight: 700;
+      font-weight: 300;
       text-transform: capitalize;
+
+      & + p {
+        min-height: 60px;
+      }
     }
 
-    &.birthday {
-      // background: #555 url(/assets/birthday-bg.jpg) center center no-repeat;
-      background-color: #cedaea;
-      background-size: cover;
+    hr {
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,.4);
     }
 
-    &.congrats {
-      background-color: #ceead5;
-    }
-
-    &.wedding {
-      background-color: #eacee0;
-    }
-
-    &.sympathy {
-      background-color: #ebebeb;
-    }
-
-    &.thanks {
-      background-color: #ebeace;
+    .actions {
+      margin-bottom: 0;
+      line-height: 32px;
     }
   }
 }
@@ -167,18 +238,27 @@ h3 {
   }
 }
 
+.btn-default {
+  background-color: #eee;
+  border: none;
+  transition: all .1s ease;
+
+  &:hover,
+  &:active {
+    background-color: lighten(#eee, 10%);
+  }
+}
+
+.btn-xl {
+  padding: 25px 35px;
+  font-size: 26px;
+}
+
 /////////// CARDS
 section.card {
   height: 100%;
   position: relative;
   color: white;
-
-  .overlay {
-    background-color: rgba(44,44,44,.25);
-    height: 100%;
-    min-height: 100%;
-    padding: 30px;
-  }
 
   h1 {
     font-size: 78px;
@@ -186,56 +266,6 @@ section.card {
     color: white;
     padding-bottom: 30px;
     border-bottom: 2px solid rgba(255,255,255,.85);
-  }
-
-  .frame {
-    border: 2px solid rgba(255,255,255,.85);
-    border-radius: 2px;
-    min-height: 100%;
-    z-index: 25;
-  }
-
-  &.birthday {
-    background: #555 url(/assets/birthday.png) center center no-repeat;
-    background-size: cover;
-    height: 100%;
-    color: white;
-  }
-
-  &.wedding {
-    background: #555 url(/assets/wedding.png) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.congratulations {
-    background: #555 url(/assets/congratulations.png) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.anniversary {
-    background: #555 url(/assets/anniversary.png) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.generic {
-    background: #555 url(/assets/basic.jpg) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.sympathy {
-    background: #555 url(/assets/sympathy.png) center center no-repeat;
-    background-size: cover;
-  }
-
-  &.thank_you {
-    background: #555 url(/assets/thank_you.png) center center no-repeat;
-    background-size: cover;
-
-    .overlay {
-      background-color: rgba(101,185,36,.75);
-      height: 100%;
-      padding: 30px;
-    }
   }
 
   a:hover {
@@ -259,5 +289,19 @@ section.card {
       opacity: 1;
       border: 2px solid rgba(255,255,255,.85);
     }
+  }
+}
+
+@media (max-width: 768px) {
+  section.card {
+    height: auto;
+
+    .overlay { padding: 15px; }
+
+    h1 { font-size: 46px; }
+  }
+
+  #clustercard { // Makes the camera responsive on mobile
+    width: 100% !important;
   }
 }
