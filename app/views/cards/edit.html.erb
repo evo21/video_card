@@ -22,4 +22,7 @@
 <% @card.videos.each do |v| %>
 
   <video id='vid_<%=v.id%>' data-uuid='<%= v.video_uuid %>'></video><br> 
+  <%= button_to "Delete this video", video_path(:id => v.auth_token), :method => :delete, :class => 'btn btn-large btn-warning', data: { confirm: 'Are you sure?'} %>
+
+
 <% end %>

@@ -1,0 +1,8 @@
+<h3>Here is the video you submitted for the card</h3>
+
+<h4>Clustercard.net/<%= @video.card.slug %></h4>
+<video id='vid_<%=@video.id%>' data-uuid='<%= @video.video_uuid %>'></video>
+
+<%= button_to "Delete this video", video_path(:id => @video.auth_token), :method => :delete, :class => 'btn btn-large btn-warning', data: { confirm: 'Are you sure?'} %>
+
+
