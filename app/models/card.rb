@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  has_many :videos
+  has_many :videos, dependent: :destroy
   has_many :invitations
 
   validates :slug, presence:true, uniqueness: true

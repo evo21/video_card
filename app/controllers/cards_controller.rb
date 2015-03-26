@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:edit, :update, :destroy]
+  before_action :set_card, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -22,6 +22,10 @@ class CardsController < ApplicationController
   # GET /cards/new
   def new
     @card = Card.new
+  end
+
+  def show
+    @video = Video.new
   end
 
   # GET /cards/1/edit
@@ -51,11 +55,8 @@ class CardsController < ApplicationController
   # DELETE /cards/1
   # DELETE /cards/1.json
   def destroy
-    @card.destroy
-    respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    #@card.destroy
+    redirect_to root_path, notice: 'Card was successfully destroyed.' 
   end
 
   private

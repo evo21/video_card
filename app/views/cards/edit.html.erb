@@ -3,14 +3,19 @@
 <%= flash_messages %>
 
 <%= bootstrap_form_for @card do |f| %>
+  <h3>Your card can be viewed at</h3>
+  <%= link_to "http://clustercard.net/#{@card.slug}", cardslug_path(@card.slug) %>
 
-  <%= f.text_field :slug %>
   <%= f.text_field :title %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= button_to "Delete this card", card_path(:id => @card.auth_token), :method => :delete, :class => 'btn btn-large btn-warning', data: { confirm: 'Are you sure?'} %>
+
+
 
 <h3>Card Videos</h3>
 
